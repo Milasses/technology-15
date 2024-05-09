@@ -4,7 +4,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 #Добавление изображений
-image = Image.open("искендерькульtourister.ru.jpg")
-
-st.image(image)
-
+st.markdown(
+    """
+    <style>
+    .reportview-container {
+        background: url("искендерькульtourister.jpg");
+        background-size: cover;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)

@@ -4,6 +4,4 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 #Добавление изображений
-image1 = Image.open("tj-mountains-nature.jpg")
-image2 = Image.open("08ptcn.jpg")
-st.image(image1, image2)
+

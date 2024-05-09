@@ -24,7 +24,7 @@ years = [2014, 2015, 2016, 2017]
 #Функция для создания графиков 
 def plot_country_graph(country, values, years):
     fig, ax = plt.subplots(figsize=(10, 6))
-    ax.plot(years, values, marker='o', linestyle='-')
+    ax.plot(years, values, marker='o', linestyle='--')
     ax.set_title(country)
     ax.set_xticks(years)
     ax.set_yticks(np.arange(0, 0.31, 0.05))
@@ -56,14 +56,14 @@ elif kgz_button:
     plot_country_graph('Кыргызстан', kgz_values, years)
 elif all_countries_button:
     fig, ax = plt.subplots(figsize=(10, 6))
-    ax.plot(years, kaz_values, marker='o', linestyle='-', label='Казахстан')
-    ax.plot(years, uzb_values, marker='o', linestyle='-', label='Узбекистан')
-    ax.plot(years, kgz_values, marker='o', linestyle='-', label='Кыргызстан')
-    ax.plot(years, tjk_values, marker='o', linestyle='-', label='Таджикистан')
+    ax.plot(years, kaz_values, marker='o', linestyle='--', label='Казахстан')
+    ax.plot(years, uzb_values, marker='o', linestyle='--', label='Узбекистан')
+    ax.plot(years, kgz_values, marker='o', linestyle='--', label='Кыргызстан')
+    ax.plot(years, tjk_values, marker='o', linestyle='--', label='Таджикистан')
     ax.set_title('Центральная Азия')
     ax.set_xticks(years)
     ax.set_yticks(np.arange(0, 0.3, 0.05))
     ax.legend()
     ax.grid(True)
     st.pyplot(fig)
-    st.image(image5)
+    st.image(image2)

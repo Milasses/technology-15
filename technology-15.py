@@ -54,7 +54,7 @@ elif Таджикистан:
 elif Кыргызстан:
     plot_country_graph('Кыргызстан', Prob_Mod_Sev_kgz_values, years)
     st.image(image4)
-elif Центральная Азия:
+elif ЦентральнаяАзия:
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.plot(years, Prob_Mod_Sev_kaz_values, marker='o', linestyle='---', label='Казахстан')
     ax.plot(years, Prob_Mod_Sev_uzb_values, marker='o', linestyle='\\\\', label='Узбекистан')

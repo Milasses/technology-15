@@ -38,9 +38,6 @@ st.markdown("<h1 style='text-align: center; color: green; font-family: Times New
 st.markdown("<h1 style='text-align: center; font-size: 20px; '>←--------------------------------</h1>", unsafe_allow_html=True)
 
 #Кнопки
-write_state_df(dataframe, connection string, session ID)
-read_state_df(connection string, session ID)
-
 st.sidebar.header("Выберите страну")
 kaz_button = st.sidebar.button('Казахстан')
 uzb_button = st.sidebar.button('Узбекистан')
@@ -49,3 +46,16 @@ kgz_button = st.sidebar.button('Кыргызстан')
 all_countries_button = st.sidebar.button('Общий график')
 # Это нужно для того чтобы графики отображались на главной станице 
 chart_placeholder = st.empty()
+
+page = st.sidebar.radio("Выберите страницу", ["Главная", "Страница 1", "Страница 2"])
+
+# Определение контента для каждой страницы
+if page == "Главная":
+    st.header("Главная страница")
+    st.write("Это содержимое главной страницы.")
+elif page == "Страница 1":
+    st.header("Страница 1")
+    st.write("Это содержимое страницы 1.")
+elif page == "Страница 2":
+    st.header("Страница 2")
+    st.write("Это содержимое страницы 2.")

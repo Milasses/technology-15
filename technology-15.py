@@ -19,7 +19,6 @@ st.markdown("<h1 style='text-align: center; color: green; font-family: Times New
 st.image(image)
 
 # Данные для каждого региона
-regions = ['Казахстан', 'Кыргызстан', 'Таджикистан', 'Узбекистан']
 kaz_values = [0.0737473506983265, 0.044529239425859325, 0.07208697980276833, 0.09025550050680399]
 uzb_values = [0.09872602667454446, 0.12482079148104783, 0.1033934827101725, 0.16342414956949367]
 tjk_values = [0.13234311608076732, 0.11086727498562164, 0.19598527440470287, 0.23921461895440915]
@@ -30,25 +29,34 @@ years = [2014, 2015, 2016, 2017]
 st.markdown("<h1 style='text-align: center; color: green; font-family: Times New Roman; font-size: 20px; '> Для того чтобы увидеть график с определенной страной нажмите на соответствующую кнопку</h1>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center; font-size: 20px; '>←--------------------------------</h1>", unsafe_allow_html=True)
 
-# Отображение графика в зависимости от выбранного региона
-if selected_region == 'Казахстан':
-    st.header('График для выбранного региона: Казахстан')
-    st.line_chart(dict(zip(years, kaz_values)))
-elif selected_region == 'Кыргызстан':
-    st.header('График для выбранного региона: Кыргызстан')
-    st.line_chart(dict(zip(years, kgz_values)))
-elif selected_region == 'Таджикистан':
-    st.header('График для выбранного региона: Таджикистан')
-    st.line_chart(dict(zip(years, tjk_values)))
-elif selected_region == 'Узбекистан':
-    st.header('График для выбранного региона: Узбекистан')
-    st.line_chart(dict(zip(years, uzb_values)))
+# Function to plot the graph
+def plot_graph(values, countries, years):
+    plt.figure(figsize=(10, 6))
 
-# Отображение графика для всех стран
-all_countries_chart = st.line_chart({
-    'Казахстан': kaz_values,
-    'Кыргызстан': kgz_values,
-    'Таджикистан': tjk_values,
-    'Узбекистан': uzb_values
-})
+    for i, values_country in enumerate(values):
+        plt.plot(years, values_country, marker='o', linestyle='-', label=countries[i])
 
+    plt.title('Probability of Moderate and Severe Financial Distress')
+    plt.xlabel('Year')
+    plt.ylabel('Probability')
+    plt.xticks(years)
+    plt.grid(True)
+    plt.legend()
+
+    # Display the graph
+    st.pyplot()
+
+# Defining the page
+page = st.sidebar.radio('Select Page', ['Home', 'Kazakhstan', 'Tajikistan', 'Kyrgyzstan', 'Uzbekistan', 'Central Asia'])
+
+# Displaying the graph based on the selected page
+if page == 'Kazakhstan':
+    plot_graph([F_ad_Prob_Mod_Sev_kaz_values], ['Kazakhstan'], years)
+elif page == 'Tajikistan':
+    plot_graph([F_ad_Prob_Mod_Sev_tjk_values], ['Tajikistan'], years)
+elif page == 'Kyrgyzstan':
+    plot_graph([F_ad_Prob_Mod_Sev_kgz_values], ['Kyrgyzstan'], years)
+elif page == 'Uzbekistan':
+    plot_graph([F_ad_Prob_Mod_Sev_uzb_values], ['Uzbekistan'], years)
+elif page == 'Central Asia':
+    plot_graph([F_ad_Prob_Mod_Sev_kaz_values, F_ad_Prob_Mod_Sev_uzb_values, F_ad_Prob_Mod_Sev_tjk_values, F_ad_Prob_Mod_Sev_kgz_values], ['Kazakhstan', 'Uzbekistan', 'Tajikistan', 'Kyrgyzstan'], years)

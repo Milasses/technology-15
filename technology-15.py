@@ -38,13 +38,39 @@ st.markdown("<h1 style='text-align: center; color: green; font-family: Times New
 st.markdown("<h1 style='text-align: center; font-size: 20px; '>←--------------------------------</h1>", unsafe_allow_html=True)
 
 #Кнопки
+st.markdown(
+    """
+    <style>
+    /* CSS для контейнера с кнопками */
+    .sidebar-container {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
+    }
+    /* CSS для кнопок */
+    .sidebar-container button {
+        border-radius: 20px; /* Задаем радиус скругления кнопок */
+        width: 200px; /* Задаем ширину кнопок */
+        height: 50px; /* Задаем высоту кнопок */
+        margin: 5px; /* Задаем отступ между кнопками */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Создаем кнопки
 st.sidebar.header("Выберите страну")
 kaz_button = st.sidebar.button('Казахстан')
 uzb_button = st.sidebar.button('Узбекистан')
 tjk_button = st.sidebar.button('Таджикистан')
 kgz_button = st.sidebar.button('Кыргызстан')
 all_countries_button = st.sidebar.button('Общий график')
-# Это нужно для того чтобы графики отображались на главной станице 
+
+# Это нужно для того чтобы графики отображались на главной странице 
 chart_placeholder = st.empty()
 
 

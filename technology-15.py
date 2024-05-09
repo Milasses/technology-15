@@ -18,21 +18,11 @@ st.markdown("<h1 style='text-align: center; color: green; font-family: Times New
 #Добавление фона сайта
 st.image(image)
 
-Prob_Mod_Sev_kaz_values = [0.0737473506983265, 0.044529239425859325, 0.07208697980276833, 0.09025550050680399]
-Prob_Mod_Sev_uzb_values = [0.09872602667454446, 0.12482079148104783, 0.1033934827101725, 0.16342414956949367]
-Prob_Mod_Sev_tjk_values = [0.13234311608076732, 0.11086727498562164, 0.19598527440470287, 0.23921461895440915]
-Prob_Mod_Sev_kgz_values = [0.1875365079274166, 0.21059007745097164, 0.19581301002148638, 0.19449654750600165]
+kaz_values = [0.0737473506983265, 0.044529239425859325, 0.07208697980276833, 0.09025550050680399]
+uzb_values = [0.09872602667454446, 0.12482079148104783, 0.1033934827101725, 0.16342414956949367]
+tjk_values = [0.13234311608076732, 0.11086727498562164, 0.19598527440470287, 0.23921461895440915]
+kgz_values = [0.1875365079274166, 0.21059007745097164, 0.19581301002148638, 0.19449654750600165]
 years = [2014, 2015, 2016, 2017]
-
-#Функция для создания графиков 
-def plot_country_graph(country, values, years):
-    fig, ax = plt.subplots(figsize=(10, 6))
-    ax.plot(years, values, marker='o', linestyle='-')
-    ax.set_title(country)
-    ax.set_xticks(years)
-    ax.set_yticks(np.arange(0, 0.31, 0.05))
-    ax.grid(True)
-    st.pyplot(fig)
 
 # Ввод текста
 st.markdown("<h1 style='text-align: center; color: green; font-family: Times New Roman; font-size: 20px; '> Для того чтобы увидеть график с определенной страной нажмите на соответствующую кнопку</h1>", unsafe_allow_html=True)
@@ -41,30 +31,23 @@ st.markdown("<h1 style='text-align: center; font-size: 20px; '>←--------------
 #Кнопки
 page = st.sidebar.radio('Выберите страницу', ['Главная', 'Казахстан', 'Таджикистан', 'Кыргызстан', 'Узбекистан', 'Центральная Азия'])
 
-# Действия которые выполняют кнопки. Показывают график и изображение
-if page:
-    plot_country_graph('Казахстан', Prob_Mod_Sev_kaz_values, years)
-    st.image(image1)
-elif page:
-    plot_country_graph('Узбекистан', Prob_Mod_Sev_uzb_values, years)
-    st.image(image2)
-elif page:
-    plot_country_graph('Таджикистан', Prob_Mod_Sev_tjk_values, years)
-    st.image(image3)
-elif page:
-    plot_country_graph('Кыргызстан', Prob_Mod_Sev_kgz_values, years)
-    st.image(image4)
-elif page:
+#Функция для создания графиков 
+def plot_country_graph(country, values, years):
     fig, ax = plt.subplots(figsize=(10, 6))
-    ax.plot(years, Prob_Mod_Sev_kaz_values, marker='o', linestyle='---', label='Казахстан')
-    ax.plot(years, Prob_Mod_Sev_uzb_values, marker='o', linestyle='\\\\', label='Узбекистан')
-    ax.plot(years, Prob_Mod_Sev_kgz_values, marker='o', linestyle='///', label='Кыргызстан')
-    ax.plot(years, Prob_Mod_Sev_tjk_values, marker='o', linestyle='|||', label='Таджикистан')
-    ax.set_title('Центральная Азия')
+    ax.plot(years, values, marker='o', linestyle='----')
+    ax.set_title(country)
     ax.set_xticks(years)
-    ax.set_yticks(np.arange(0, 0.3, 0.05))
-    ax.legend()
+    ax.set_yticks(np.arange(0, 0.31, 0.05))
     ax.grid(True)
     st.pyplot(fig)
-    st.image(image5)
 
+if kaz_button:
+    plot_country_graph('Казахстан', kaz_values, years, page)
+elif uzb_button:
+    plot_country_graph('Узбекистан', uzb_values, years, page)
+elif tjk_button:
+    plot_country_graph('Таджикистан', tjk_values, years, page)
+elif kgz_button:
+    plot_country_graph('Кыргызстан', kgz_values, years, page)
+    
+#Отображение графика для всех стран

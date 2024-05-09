@@ -6,7 +6,11 @@ from PIL import Image
 
 #Добавление изображений
 image = Image.open("центральная азия.jpg")
-image2 = Image.open("общий график.jpg")
+image1 = Image.open("казахстан.jpeg")
+image2 = Image.open("узбекистан.jpg")
+image3 = Image.open("таджикистан.jpg")
+image4 = Image.open("кыргызстан.jpg")
+image5 = Image.open("общий график.jpg")
 
 #Ввод текста
 st.markdown("<h1 style='text-align: center; color: green; font-family: Times New Roman;'>Данная страница представляет информацию продовольственной безопасности центральной Азии</h1>", unsafe_allow_html=True)
@@ -47,12 +51,16 @@ chart_placeholder = st.empty()
 
 # Действия которые выполняю кнопки. Показывают график и изображение
 if kaz_button:
-    plot_country_graph('Казахстан', kaz_values, years)
+    st.image(image1)
+    plot_country_graph('Казахстан', kaz_values, years) 
 elif uzb_button:
+    st.image(image2)
     plot_country_graph('Узбекистан', uzb_values, years)
 elif tjk_button:
+    st.image(image3)
     plot_country_graph('Таджикистан', tjk_values, years)
 elif kgz_button:
+    st.image(image4)
     plot_country_graph('Кыргызстан', kgz_values, years)
 elif all_countries_button:
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -66,4 +74,4 @@ elif all_countries_button:
     ax.legend()
     ax.grid(True)
     st.pyplot(fig)
-    st.image(image2)
+    st.image(image5)

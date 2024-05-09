@@ -38,6 +38,9 @@ st.markdown("<h1 style='text-align: center; color: green; font-family: Times New
 st.markdown("<h1 style='text-align: center; font-size: 20px; '>←--------------------------------</h1>", unsafe_allow_html=True)
 
 #Кнопки
+write_state_df(dataframe, connection string, session ID)
+read_state_df(connection string, session ID)
+
 st.sidebar.header("Выберите страну")
 kaz_button = st.sidebar.button('Казахстан')
 uzb_button = st.sidebar.button('Узбекистан')

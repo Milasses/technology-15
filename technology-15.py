@@ -6,11 +6,7 @@ from PIL import Image
 
 #Добавление изображений
 image = Image.open("центральная азия.jpg")
-image1 = Image.open("казахстан.jpg")
-image2 = Image.open("узбекистан.jpg")
-image3 = Image.open("таджикистан.jpg")
-image4 = Image.open("кыргызстан.jpg")
-image5 = Image.open("общий график.jpg")
+image2 = Image.open("общий график.jpg")
 
 #Ввод текста
 st.markdown("<h1 style='text-align: center; color: green; font-family: Times New Roman;'>Данная страница представляет информацию продовольственной безопасности центральной Азии</h1>", unsafe_allow_html=True)
@@ -28,7 +24,7 @@ years = [2014, 2015, 2016, 2017]
 #Функция для создания графиков 
 def plot_country_graph(country, values, years):
     fig, ax = plt.subplots(figsize=(10, 6))
-    ax.plot(years, values, marker='o', linestyle='----')
+    ax.plot(years, values, marker='o', linestyle='-')
     ax.set_title(country)
     ax.set_xticks(years)
     ax.set_yticks(np.arange(0, 0.31, 0.05))
@@ -48,25 +44,22 @@ kgz_button = st.sidebar.button('Кыргызстан')
 all_countries_button = st.sidebar.button('Общий график')
 # Это нужно для того чтобы графики отображались на главной станице 
 chart_placeholder = st.empty()
+
 # Действия которые выполняю кнопки. Показывают график и изображение
 if kaz_button:
     plot_country_graph('Казахстан', kaz_values, years)
-    st.image(image1)
 elif uzb_button:
     plot_country_graph('Узбекистан', uzb_values, years)
-    st.image(image2)
 elif tjk_button:
     plot_country_graph('Таджикистан', tjk_values, years)
-    st.image(image3)
 elif kgz_button:
     plot_country_graph('Кыргызстан', kgz_values, years)
-    st.image(image4)
 elif all_countries_button:
     fig, ax = plt.subplots(figsize=(10, 6))
-    ax.plot(years, kaz_values, marker='o', linestyle='----', label='Казахстан')
-    ax.plot(years, uzb_values, marker='o', linestyle='----', label='Узбекистан')
-    ax.plot(years, kgz_values, marker='o', linestyle='----', label='Кыргызстан')
-    ax.plot(years, tjk_values, marker='o', linestyle='----', label='Таджикистан')
+    ax.plot(years, kaz_values, marker='o', linestyle='-', label='Казахстан')
+    ax.plot(years, uzb_values, marker='o', linestyle='-', label='Узбекистан')
+    ax.plot(years, kgz_values, marker='o', linestyle='-', label='Кыргызстан')
+    ax.plot(years, tjk_values, marker='o', linestyle='-', label='Таджикистан')
     ax.set_title('Центральная Азия')
     ax.set_xticks(years)
     ax.set_yticks(np.arange(0, 0.3, 0.05))

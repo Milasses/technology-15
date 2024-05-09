@@ -30,8 +30,8 @@ def plot_country_graph(country, values, years):
     st.pyplot(fig)
 
 # Ввод теста
-st.markdown("<h1 style='text-align: on right; color: green; font-family: Times New Roman;'>Данная страница представляет информацию продовольственной безопасности центральной Азии</h1>", unsafe_allow_html=True)
-st.markdown("<h1 style='text-align: on right; color: green; font-family: Times New Roman;'> Для того чтобы увидеть график с определенной страной нажмите на соответствующую кнопку</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: right; color: green; font-family: Times New Roman;'>Данная страница представляет информацию продовольственной безопасности центральной Азии</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: right; color: green; font-family: Times New Roman;'> Для того чтобы увидеть график с определенной страной нажмите на соответствующую кнопку</h1>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center;'>←--------------------------------</h1>", unsafe_allow_html=True)
 
 

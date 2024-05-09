@@ -24,7 +24,7 @@ years = [2014, 2015, 2016, 2017]
 #Функция для создания графиков 
 def plot_country_graph(country, values, years):
     fig, ax = plt.subplots(figsize=(10, 6))
-    ax.plot(years, values, marker='o', linestyle='----')
+    ax.plot(years, values, marker='o', linestyle='----', color: violet)
     ax.set_title(country)
     ax.set_xticks(years)
     ax.set_yticks(np.arange(0, 0.31, 0.05))
@@ -36,7 +36,7 @@ st.markdown("<h1 style='text-align: center; color: green; font-family: Times New
 st.markdown("<h1 style='text-align: center; font-size: 20px; '>←--------------------------------</h1>", unsafe_allow_html=True)
 
 # Кнопки
-st.sidebar.radio("Выберите страну")
+st.sidebar.header("Выберите страну")
 kaz_button = st.sidebar.button('Казахстан')
 uzb_button = st.sidebar.button('Узбекистан')
 tjk_button = st.sidebar.button('Таджикистан')

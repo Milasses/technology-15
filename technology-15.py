@@ -39,7 +39,7 @@ st.markdown("<h1 style='text-align: center; font-size: 20px; '>←--------------
 
 #Кнопки
 st.sidebar.header("Выберите страну")
-kaz_button = st.sidebar.button('Казахстан')
+kaz_button = st.sidebar.radio('Казахстан')
 uzb_button = st.sidebar.button('Узбекистан')
 tjk_button = st.sidebar.button('Таджикистан')
 kgz_button = st.sidebar.button('Кыргызстан')

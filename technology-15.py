@@ -11,7 +11,10 @@ image3 = Image.open("таджикистан.jpg")
 image4 = Image.open("кыргызстан.jpg")
 image5 = Image.open("общий график.jpg")
 
+#Ввод текста
 st.markdown("<h1 style='text-align: center; color: green; font-family: Times New Roman;'>Данная страница представляет информацию продовольственной безопасности центральной Азии</h1>", unsafe_allow_html=True)
+
+#Добавление фона сайта
 st.image(image)
 
 Prob_Mod_Sev_kaz_values = [0.0737473506983265, 0.044529239425859325, 0.07208697980276833, 0.09025550050680399]
@@ -30,8 +33,8 @@ def plot_country_graph(country, values, years):
     ax.grid(True)
     st.pyplot(fig)
 
-# Ввод теста
+# Ввод текста
 st.markdown("<h1 style='text-align: center; color: green; font-family: Times New Roman; font-size: 20px; '> Для того чтобы увидеть график с определенной страной нажмите на соответствующую кнопку</h1>", unsafe_allow_html=True)
-st.markdown("<h1 style='text-align: center;'>←--------------------------------</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; font-size: 20px; '>←--------------------------------</h1>", unsafe_allow_html=True)
 
 

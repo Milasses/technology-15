@@ -38,14 +38,6 @@ st.markdown("<h1 style='text-align: center; color: green; font-family: Times New
 st.markdown("<h1 style='text-align: center; font-size: 20px; '>←--------------------------------</h1>", unsafe_allow_html=True)
 
 #Кнопки
-st.sidebar.radio("Выберите страну")
-kaz_button = st.sidebar.header('Казахстан')
-uzb_button = st.sidebar.button('Узбекистан')
-tjk_button = st.sidebar.button('Таджикистан')
-kgz_button = st.sidebar.button('Кыргызстан')
-all_countries_button = st.sidebar.button('Общий график')
-# Это нужно для того чтобы графики отображались на главной станице 
-chart_placeholder = st.empty()
 
 # Главная страница
 def main():

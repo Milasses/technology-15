@@ -4,6 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 #Добавление изображений
-image = Image.open("центральная азия.jpg")
+image = Image.open("центральная азия.pnd")
 
 st.image(image)

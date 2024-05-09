@@ -42,19 +42,19 @@ st.markdown("<h1 style='text-align: center; font-size: 20px; '>←--------------
 page = st.sidebar.radio('Выберите страницу', ['Главная', 'Казахстан', 'Таджикистан', 'Кыргызстан', 'Узбекистан', 'Центральная Азия'])
 
 # Действия которые выполняю кнопки. Показывают график и изображение
-if kaz_button:
+if Казахстан:
     plot_country_graph('Казахстан', Prob_Mod_Sev_kaz_values, years)
     st.image(image1)
-elif uzb_button:
+elif Узбекистан:
     plot_country_graph('Узбекистан', Prob_Mod_Sev_uzb_values, years)
     st.image(image2)
-elif tjk_button:
+elif Таджикистан:
     plot_country_graph('Таджикистан', Prob_Mod_Sev_tjk_values, years)
     st.image(image3)
-elif kgz_button:
+elif Кыргызстан:
     plot_country_graph('Кыргызстан', Prob_Mod_Sev_kgz_values, years)
     st.image(image4)
-elif all_countries_button:
+elif Центральная Азия:
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.plot(years, Prob_Mod_Sev_kaz_values, marker='o', linestyle='---', label='Казахстан')
     ax.plot(years, Prob_Mod_Sev_uzb_values, marker='o', linestyle='\\\\', label='Узбекистан')

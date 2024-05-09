@@ -47,21 +47,50 @@ all_countries_button = st.sidebar.button('Общий график')
 # Это нужно для того чтобы графики отображались на главной станице 
 chart_placeholder = st.empty()
 
-page = st.sidebar.radio("Выберите страну", ["Казахстан", "Таджикистан", "Узбекистан", "Кыргызстан", "Центральная Азия"])
+# Главная страница
+def main():
+    st.title("Главная страница")
+    st.write("Это содержимое главной страницы.")
 
-# Определение контента для каждой страницы
-if page == "Казахстан":
-    st.header("Казахстан")
-    st.write("Это содержимое страницы 1.")
-elif page == "Таджикистан":
-    st.header("Таджикистан")
-    st.write("Это содержимое страницы 2.")
-elif page == "Узбекистан":
-    st.header("Узбекистан")
-    st.write("Это содержимое страницы 3.")
-elif page == "Кыргызстан":
-    st.header("Кыргызстан")
-    st.write("Это содержимое страницы 4.")
-elif page == "Центральная Азия":
-    st.header("Центральная Азия")
-    st.write("Это содержимое страницы 5.")
+# Страница Казахстана
+def kazakhstan_page():
+    st.title("Казахстан")
+    st.write(" plot_country_graph('Казахстан', Prob_Mod_Sev_kaz_values, years)
+    st.image(image1)
+")
+
+# Страница Узбекистана
+def uzbekistan_page():
+    st.title("Узбекистан")
+    st.write("plot_country_graph('Узбекистан', Prob_Mod_Sev_uzb_values, years)
+    st.image(image2)
+")
+
+# Страница Таджикистана
+def tajikistan_page():
+    st.title("Таджикистан")
+    st.write(" plot_country_graph('Таджикистан', Prob_Mod_Sev_tjk_values, years)
+    st.image(image3)
+")
+
+# Страница Кыргызстана
+def kyrgyzstan_page():
+    st.title("Кыргызстан")
+    st.write("plot_country_graph('Кыргызстан', Prob_Mod_Sev_kgz_values, years)
+    st.image(image4)
+")
+    
+# Создаем кнопки для перехода на другие страницы
+st.sidebar.header("Выберите страну")
+if st.sidebar.button('Казахстан'):
+    kazakhstan_page()
+elif st.sidebar.button('Узбекистан'):
+    uzbekistan_page()
+elif st.sidebar.button('Таджикистан'):
+    tajikistan_page()
+elif st.sidebar.button('Кыргызстан'):
+    kyrgyzstan_page()
+elif st.sidebar.button('Центральная Азия'):
+    centralAsia_page()
+else:
+    main()

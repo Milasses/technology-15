@@ -36,7 +36,7 @@ st.markdown("<h1 style='text-align: center; color: green; font-family: Times New
 st.markdown("<h1 style='text-align: center; font-size: 20px; '>←--------------------------------</h1>", unsafe_allow_html=True)
 
 # Кнопки
-st.sidebar.header("Выберите страну")
+st.sidebar.radio("Выберите страну")
 kaz_button = st.sidebar.button('Казахстан')
 uzb_button = st.sidebar.button('Узбекистан')
 tjk_button = st.sidebar.button('Таджикистан')
@@ -47,13 +47,13 @@ chart_placeholder = st.empty()
 
 # Действия которые выполняю кнопки. Показывают график и изображение
 if kaz_button:
-    plot_country_graph('Казахстан', kaz_values, years, сolor: violet)
+    plot_country_graph('Казахстан', kaz_values, years)
 elif uzb_button:
-    plot_country_graph('Узбекистан', uzb_values, years, color: blue)
+    plot_country_graph('Узбекистан', uzb_values, years)
 elif tjk_button:
-    plot_country_graph('Таджикистан', tjk_values, years,  color: pink)
+    plot_country_graph('Таджикистан', tjk_values, years)
 elif kgz_button:
-    plot_country_graph('Кыргызстан', kgz_values, years,  color: red)
+    plot_country_graph('Кыргызстан', kgz_values, years)
 elif all_countries_button:
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.plot(years, kaz_values, marker='o', linestyle='----', label='Казахстан')

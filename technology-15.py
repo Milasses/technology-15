@@ -6,7 +6,7 @@ from PIL import Image
 
 #Добавление изображений
 image = Image.open("центральная азия.jpg")
-image1 = Image.open("казахстан.jpeg")
+image1 = Image.open("казахстан.jpg")
 image2 = Image.open("узбекистан.jpg")
 image3 = Image.open("таджикистан.jpg")
 image4 = Image.open("кыргызстан.jpg")

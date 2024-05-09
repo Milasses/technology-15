@@ -45,16 +45,16 @@ page = st.sidebar.radio('Выберите страницу', ['Главная', 
 if page:
     plot_country_graph('Казахстан', Prob_Mod_Sev_kaz_values, years)
     st.image(image1)
-elif Узбекистан:
+elif page:
     plot_country_graph('Узбекистан', Prob_Mod_Sev_uzb_values, years)
     st.image(image2)
-elif Таджикистан:
+elif page:
     plot_country_graph('Таджикистан', Prob_Mod_Sev_tjk_values, years)
     st.image(image3)
-elif Кыргызстан:
+elif page:
     plot_country_graph('Кыргызстан', Prob_Mod_Sev_kgz_values, years)
     st.image(image4)
-elif ЦентральнаяАзия:
+elif page:
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.plot(years, Prob_Mod_Sev_kaz_values, marker='o', linestyle='---', label='Казахстан')
     ax.plot(years, Prob_Mod_Sev_uzb_values, marker='o', linestyle='\\\\', label='Узбекистан')

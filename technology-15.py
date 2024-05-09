@@ -27,7 +27,7 @@ years = [2014, 2015, 2016, 2017]
 #Функция для создания графиков 
 def plot_country_graph(country, values, years):
     fig, ax = plt.subplots(figsize=(10, 6))
-    ax.plot(years, values, marker='o', linestyle='\\\\')
+    ax.plot(years, values, marker='o', linestyle='-')
     ax.set_title(country)
     ax.set_xticks(years)
     ax.set_yticks(np.arange(0, 0.31, 0.05))
@@ -41,8 +41,8 @@ st.markdown("<h1 style='text-align: center; font-size: 20px; '>←--------------
 #Кнопки
 page = st.sidebar.radio('Выберите страницу', ['Главная', 'Казахстан', 'Таджикистан', 'Кыргызстан', 'Узбекистан', 'Центральная Азия'])
 
-# Действия которые выполняю кнопки. Показывают график и изображение
-if Казахстан:
+# Действия которые выполняют кнопки. Показывают график и изображение
+if page:
     plot_country_graph('Казахстан', Prob_Mod_Sev_kaz_values, years)
     st.image(image1)
 elif Узбекистан:

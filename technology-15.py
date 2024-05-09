@@ -25,38 +25,52 @@ tjk_values = [0.13234311608076732, 0.11086727498562164, 0.19598527440470287, 0.2
 kgz_values = [0.1875365079274166, 0.21059007745097164, 0.19581301002148638, 0.19449654750600165]
 years = [2014, 2015, 2016, 2017]
 
+#Функция для создания графиков 
+def plot_country_graph(country, values, years):
+    fig, ax = plt.subplots(figsize=(10, 6))
+    ax.plot(years, values, marker='o', linestyle='----')
+    ax.set_title(country)
+    ax.set_xticks(years)
+    ax.set_yticks(np.arange(0, 0.31, 0.05))
+    ax.grid(True)
+    st.pyplot(fig)
+
 # Ввод текста
 st.markdown("<h1 style='text-align: center; color: green; font-family: Times New Roman; font-size: 20px; '> Для того чтобы увидеть график с определенной страной нажмите на соответствующую кнопку</h1>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center; font-size: 20px; '>←--------------------------------</h1>", unsafe_allow_html=True)
 
-# Function to plot the graph
-def plot_graph(values, countries, years):
-    plt.figure(figsize=(10, 6))
-
-    for i, values_country in enumerate(values):
-        plt.plot(years, values_country, marker='o', linestyle='-', label=countries[i])
-
-    plt.title('Probability of Moderate and Severe Financial Distress')
-    plt.xlabel('Year')
-    plt.ylabel('Probability')
-    plt.xticks(years)
-    plt.grid(True)
-    plt.legend()
-
-    # Display the graph
-    st.pyplot()
-
-# Defining the page
-page = st.sidebar.radio('Select Page', ['Home', 'Kazakhstan', 'Tajikistan', 'Kyrgyzstan', 'Uzbekistan', 'Central Asia'])
-
-# Displaying the graph based on the selected page
-if page == 'Kazakhstan':
-    plot_graph([F_ad_Prob_Mod_Sev_kaz_values], ['Kazakhstan'], years)
-elif page == 'Tajikistan':
-    plot_graph([F_ad_Prob_Mod_Sev_tjk_values], ['Tajikistan'], years)
-elif page == 'Kyrgyzstan':
-    plot_graph([F_ad_Prob_Mod_Sev_kgz_values], ['Kyrgyzstan'], years)
-elif page == 'Uzbekistan':
-    plot_graph([F_ad_Prob_Mod_Sev_uzb_values], ['Uzbekistan'], years)
-elif page == 'Central Asia':
-    plot_graph([F_ad_Prob_Mod_Sev_kaz_values, F_ad_Prob_Mod_Sev_uzb_values, F_ad_Prob_Mod_Sev_tjk_values, F_ad_Prob_Mod_Sev_kgz_values], ['Kazakhstan', 'Uzbekistan', 'Tajikistan', 'Kyrgyzstan'], years)
+№ Кнопки
+st.sidebar.header("Выберите страну")
+kaz_button = st.sidebar.button('Казахстан')
+uzb_button = st.sidebar.button('Узбекистан')
+tjk_button = st.sidebar.button('Таджикистан')
+kgz_button = st.sidebar.button('Кыргызстан')
+all_countries_button = st.sidebar.button('Общий график')
+# Это нужно для того чтобы графики отображались на главной станице 
+chart_placeholder = st.empty()
+# Действия которые выполняю кнопки. Показывают график и изображение
+if kaz_button:
+    plot_country_graph('Казахстан', kaz_values, years)
+    st.image(image1)
+elif uzb_button:
+    plot_country_graph('Узбекистан', uzb_values, years)
+    st.image(image2)
+elif tjk_button:
+    plot_country_graph('Таджикистан', tjk_values, years)
+    st.image(image3)
+elif kgz_button:
+    plot_country_graph('Кыргызстан', kgz_values, years)
+    st.image(image4)
+elif all_countries_button:
+    fig, ax = plt.subplots(figsize=(10, 6))
+    ax.plot(years, kaz_values, marker='o', linestyle='----', label='Казахстан')
+    ax.plot(years, uzb_values, marker='o', linestyle='----', label='Узбекистан')
+    ax.plot(years, kgz_values, marker='o', linestyle='----', label='Кыргызстан')
+    ax.plot(years, tjk_values, marker='o', linestyle='----', label='Таджикистан')
+    ax.set_title('Центральная Азия')
+    ax.set_xticks(years)
+    ax.set_yticks(np.arange(0, 0.3, 0.05))
+    ax.legend()
+    ax.grid(True)
+    st.pyplot(fig)
+    st.image(image5)

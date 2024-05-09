@@ -4,17 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 #Добавление изображений
-background_image = "искендерькульtourister.ru.jpg"
+image5 = Image.open("119-full.jpg")
 
-# Устанавливаем фоновое изображение
-st.markdown(
-    f"""
-    <style>
-    .reportview-container {{
-        background: url("{background_image}");
-        background-size: cover;
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+st.image(image)

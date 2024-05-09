@@ -57,7 +57,7 @@ elif kgz_button:
 elif all_countries_button:
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.plot(years, Prob_Mod_Sev_kaz_values, marker='o', linestyle='---', label='Казахстан')
-    ax.plot(years, Prob_Mod_Sev_uzb_values, marker='o', linestyle='\\\', label='Узбекистан')
+    ax.plot(years, Prob_Mod_Sev_uzb_values, marker='o', linestyle='\\\\', label='Узбекистан')
     ax.plot(years, Prob_Mod_Sev_kgz_values, marker='o', linestyle='///', label='Кыргызстан')
     ax.plot(years, Prob_Mod_Sev_tjk_values, marker='o', linestyle='|||', label='Таджикистан')
     ax.set_title('Центральная Азия')

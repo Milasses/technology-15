@@ -32,7 +32,7 @@ def plot_country_graph(country, values, years):
     st.pyplot(fig)
 
 # Ввод текста
-st.markdown("<h1 style='text-align: center; color: green; font-family: Times New Roman; font-size: 20px; '> Для того чтобы увидеть график определенной странs нажмите на соответствующую кнопку</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: green; font-family: Times New Roman; font-size: 20px; '> Для того чтобы увидеть график определенной страны нажмите на соответствующую кнопку</h1>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center; font-size: 20px; '>←--------------------------------</h1>", unsafe_allow_html=True)
 
 # Кнопки

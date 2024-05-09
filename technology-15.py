@@ -32,12 +32,14 @@ def plot_country_graph(country, values, years):
 st.markdown(
     """
     <div style='text-align: right;'>
-    <h1 style='color: red; font-family: Times New Roman;'>Данная страница представляет тренды продовольственной безопасности центральной Азии</h1>
-    <p style='font-family: Times New Roman;'>Чтобы увидеть график с тенденцией нажмите на соответствующую кнопку →</p>
+    <h1 style='color: green; font-family: Times New Roman;'>Данная страница представляет информацию продовольственной безопасности центральной Азии</h1>
+    <h1 style='color: green; font-family: Times New Roman;'>Для того чтобы увидеть график с определенной страной нажмите на соответствующую кнопку</h1>
     </div>
     """,
     unsafe_allow_html=True
 )
+
+st.markdown("<h1 style='text-align: center;'>←--------------------------------</h1>", unsafe_allow_html=True)
 # Ввод теста
 st.markdown("<h1 style='text-align: right; color: green; font-family: Times New Roman;'>Данная страница представляет информацию продовольственной безопасности центральной Азии</h1>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: right; color: green; font-family: Times New Roman;'> Для того чтобы увидеть график с определенной страной нажмите на соответствующую кнопку</h1>", unsafe_allow_html=True)

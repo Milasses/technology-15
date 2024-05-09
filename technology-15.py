@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
+
 #Добавление изображений
 image = Image.open("центральная азия.jpg")
 image1 = Image.open("казахстан.jpg")
@@ -26,7 +27,7 @@ years = [2014, 2015, 2016, 2017]
 #Функция для создания графиков 
 def plot_country_graph(country, values, years):
     fig, ax = plt.subplots(figsize=(10, 6))
-    ax.plot(years, values, marker='o', linestyle='-')
+    ax.plot(years, values, marker='o', linestyle='\\\\')
     ax.set_title(country)
     ax.set_xticks(years)
     ax.set_yticks(np.arange(0, 0.31, 0.05))
@@ -39,3 +40,31 @@ st.markdown("<h1 style='text-align: center; font-size: 20px; '>←--------------
 
 #Кнопки
 page = st.sidebar.radio('Выберите страницу', ['Главная', 'Казахстан', 'Таджикистан', 'Кыргызстан', 'Узбекистан', 'Центральная Азия'])
+
+# Действия которые выполняю кнопки. Показывают график и изображение
+if kaz_button:
+    plot_country_graph('Казахстан', Prob_Mod_Sev_kaz_values, years)
+    st.image(image1)
+elif uzb_button:
+    plot_country_graph('Узбекистан', Prob_Mod_Sev_uzb_values, years)
+    st.image(image2)
+elif tjk_button:
+    plot_country_graph('Таджикистан', Prob_Mod_Sev_tjk_values, years)
+    st.image(image3)
+elif kgz_button:
+    plot_country_graph('Кыргызстан', Prob_Mod_Sev_kgz_values, years)
+    st.image(image4)
+elif all_countries_button:
+    fig, ax = plt.subplots(figsize=(10, 6))
+    ax.plot(years, Prob_Mod_Sev_kaz_values, marker='o', linestyle='---', label='Казахстан')
+    ax.plot(years, Prob_Mod_Sev_uzb_values, marker='o', linestyle='\\\', label='Узбекистан')
+    ax.plot(years, Prob_Mod_Sev_kgz_values, marker='o', linestyle='///', label='Кыргызстан')
+    ax.plot(years, Prob_Mod_Sev_tjk_values, marker='o', linestyle='|||', label='Таджикистан')
+    ax.set_title('Центральная Азия')
+    ax.set_xticks(years)
+    ax.set_yticks(np.arange(0, 0.3, 0.05))
+    ax.legend()
+    ax.grid(True)
+    st.pyplot(fig)
+    st.image(image5)
+
